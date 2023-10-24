@@ -10,7 +10,10 @@ producto, nombre, envase, volumen, sabor,
 precio) VALUES ('1041119', 'Línea Citrus', 'Botella de Vidrio',
 '700 ml', 'Lima', 4.90);
 
-UPDATE tbproductos SET Nombre='Clean'
-WHERE volumen='700 ml';
+/*UPDATE tbproductos SET Nombre='Clean'
+	WHERE Producto = '773912'; */
+    UPDATE tbproductos SET Nombre='Clean'
+	WHERE Producto = '773912';
 
-SELECT * FROM tbproductos;
+
+	SELECT * FROM tbproductos;
