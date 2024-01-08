@@ -148,3 +148,47 @@ select A.NOMBRE_DEL_PRODUCTO, A.ENVASE, A.PRECIO_DE_LISTA, B.PRECIO_MAXIMO
 				on A.ENVASE=B.ENVASE;
 
 
+				/**  FUNCIONES W3SCHOOLS**/
+	select ltrim("    quita los espacios iniciales de una cadena caracteres");
+    select rtrim("remueve los espacios finales de un cadena caracteres     ");
+    SELECT NOMBRE, CONCAT(DIRECCION_1, ' ', BARRIO, ' ', CIUDAD, ' ', ESTADO) AS COMPLETO FROM tabla_de_clientes;
+	
+    SELECT DATE("The date is 2017-06-15");
+	SELECT CURDATE();
+    select current_time();
+    select current_date();
+    select current_timestamp();
+     
+	SELECT degrees(ACOS(0.25));
+    
+SELECT YEAR(FECHA_VENTA), FLOOR(SUM(IMPUESTO * (CANTIDAD * PRECIO))) 
+AS RESULTADO
+FROM facturas F
+INNER JOIN items_facturas IFa ON F.NUMERO = IFa.NUMERO
+WHERE YEAR(FECHA_VENTA) = 2016
+GROUP BY YEAR(FECHA_VENTA);
+
+select current_timestamp() as RESULTADO;
+select concat("la fecha y hora de hoy es: ", current_timestamp()) as RESULTADO;
+
+select concat("la fecha y la hora son: ", 
+	date_format(current_timestamp(), "%W,%m,%Y")) as RESULTADO;
+    
+SELECT CONCAT('El cliente ', TC.NOMBRE, ' facturó ', 
+CONVERT(SUM(IFa.CANTIDAD * IFa.precio), CHAR(20))
+ , ' en el año ', CONVERT(YEAR(F.FECHA_VENTA), CHAR(20))) AS FRASE FROM facturas F
+INNER JOIN items_facturas IFa ON F.NUMERO = IFa.NUMERO
+INNER JOIN tabla_de_clientes TC ON F.DNI = TC.DNI
+WHERE YEAR(FECHA_VENTA) = 2016
+GROUP BY TC.NOMBRE, YEAR(FECHA_VENTA);
+
+SELECT SUBSTRING(CONVERT(23.45, CHAR),3,1) AS RESULTADO;
+
+
+
+
+	
+
+
+
+
