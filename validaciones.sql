@@ -112,3 +112,39 @@ union
 select distinct BARRIO,NOMBRE, 'vendedor' as TIPO from tabla_de_vendedores;
 
 /** subconsultas **/ 
+
+select distinct BARRIO from tabla_de_vendedores;
+
+select * from tabla_de_clientes
+	where BARRIO in (select distinct BARRIO from tabla_de_vendedores);
+
+select * from tabla_de_productos;
+select X.ENVASE, X.PRECIO_MAXIMO from 
+	(select ENVASE, max(PRECIO_DE_LISTA) as  PRECIO_MAXIMO from tabla_de_productos 
+		group by ENVASE) X where X.PRECIO_MAXIMO >= 10;
+
+/** EXAMPLE **/ 
+SELECT DNI, COUNT(*) FROM facturas
+WHERE YEAR(FECHA_VENTA) = 2016
+GROUP BY DNI
+HAVING COUNT(*) > 2000;
+
+
+			/** VIEW **/ 
+            
+select ENVASE, max(PRECIO_DE_LISTA) as PRECIO_MAXIMO
+	from tabla_de_productos group by ENVASE;
+    
+    
+select X.ENVASE, X.PRECIO_MAXIMO from
+	VW_envases_grandes X 	
+		where  PRECIO_MAXIMO >= 10;
+        
+
+select A.NOMBRE_DEL_PRODUCTO, A.ENVASE, A.PRECIO_DE_LISTA, B.PRECIO_MAXIMO 
+	from tabla_de_productos A 
+		inner join 	
+			VW_envases_grandes B
+				on A.ENVASE=B.ENVASE;
+
+
