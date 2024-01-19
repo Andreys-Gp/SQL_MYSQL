@@ -124,3 +124,21 @@ FOREIGN KEY (MATRICULA) REFERENCES tb_vendedor(MATRICULA);
 ALTER TABLE tb_items_facturas ADD CONSTRAINT FK_PRODUCTO
 FOREIGN KEY (CODIGO) REFERENCES tb_producto(CODIGO);
 
+use ventas_jugos;
+
+/* insertando datos */
+
+insert into tb_producto (
+CODIGO, DESCRIPCION,SABOR,TAMANO,ENVASE,PRECIO_LISTA
+) values (
+/*primer producto */
+'1040107','light','sandia','350 ml','lata',4.56
+);
+select * from tb_producto;
+
+insert into tb_producto values 
+	('1040109','ligth','Asai','350 ml','Lata',5.60),
+    ('1040110','ligth','Manzana','350 ml','Lata',6.00),
+    ('1040111','ligth','Mango','350 ml','Lata',3.50);
+    
+
