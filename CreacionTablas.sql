@@ -81,3 +81,17 @@ FOREIGN KEY (NUMERO) REFERENCES facturas(NUMERO);
 /* renonbrando tabla */
 alter table tb_ventas rename tb_facturas;
 
+create table tb_items_facturas(
+NUMERO varchar(5) not null,
+CODIGO varchar(10) not null,
+CANTIDAD int,
+PRECIO float,
+primary key (NUMERO,CODIGO)
+);
+
+ALTER TABLE tb_items_facturas ADD CONSTRAINT FK_FACTURAS
+FOREIGN KEY (NUMERO) REFERENCES tb_facturas(NUMERO);
+
+ALTER TABLE tb_items_facturas ADD CONSTRAINT FK_PRODUCTO
+FOREIGN KEY (CODIGO) REFERENCES tb_producto(CODIGO);
+
