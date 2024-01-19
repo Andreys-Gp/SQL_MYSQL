@@ -51,4 +51,20 @@ CREATE TABLE clientes (
   primary key (NUMERO)
   );
   
+  drop table facturas;
+  
+  create table tb_ventas(
+  NUMERO varchar(5) not null,
+  FECHA date null,
+  DNI varchar(11) not null,
+  MATRICULA varchar(5) not null,
+  IMPUESTO float,
+  primary key(NUMERO)
+  );
+  
+  alter table tb_ventas add constraint FK_CLIENTE 
+	foreign key (DNI) references tb_clientes(DNI);	 
+  
+   alter table tb_ventas add constraint FK_VENDEDOR 
+	foreign key (MATRICULA) references tb_vendedor(MATRICULA); 
   
