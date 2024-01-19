@@ -67,4 +67,14 @@ CREATE TABLE clientes (
   
    alter table tb_ventas add constraint FK_VENDEDOR 
 	foreign key (MATRICULA) references tb_vendedor(MATRICULA); 
+
+CREATE TABLE items_facturas
+(NUMERO VARCHAR(5) NOT NULL,
+CODIGO VARCHAR(10) NOT NULL,
+CANTIDAD INT,
+PRECIO FLOAT,
+PRIMARY KEY (NUMERO, CODIGO));
+
+ALTER TABLE items_facturas ADD CONSTRAINT FK_FACTURAS
+FOREIGN KEY (NUMERO) REFERENCES facturas(NUMERO);
   
