@@ -78,3 +78,6 @@ PRIMARY KEY (NUMERO, CODIGO));
 ALTER TABLE items_facturas ADD CONSTRAINT FK_FACTURAS
 FOREIGN KEY (NUMERO) REFERENCES facturas(NUMERO);
   
+/* renonbrando tabla */
+alter table tb_ventas rename tb_facturas;
+
