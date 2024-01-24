@@ -49,3 +49,18 @@ INNER JOIN
 tb_clientes B 
 ON A.DNI = B.DNI
 WHERE B.EDAD < 18;
+
+CREATE TABLE `tabla_de_productos_2` (
+  `CODIGO_DEL_PRODUCTO` varchar(10) NOT NULL,
+  `NOMBRE_DEL_PRODUCTO` varchar(50) DEFAULT NULL,
+  `TAMANO` varchar(10) DEFAULT NULL,
+  `SABOR` varchar(20) DEFAULT NULL,
+  `ENVASE` varchar(20) DEFAULT NULL,
+  `PRECIO_DE_LISTA` float NOT NULL,
+  PRIMARY KEY (`CODIGO_DEL_PRODUCTO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO tabla_de_productos_2 
+	SELECT * FROM tabla_de_productos;
+SELECT * FROM tabla_de_productos_2;
+UPDATE tabla_de_productos_2 SET PRECIO_DE_LISTA = PRECIO_DE_LISTA*1.15;
