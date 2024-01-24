@@ -39,3 +39,13 @@ INNER JOIN
 tb_vendedor B
 ON A.BARRIO = B.BARRIO
 SET A.VOLUMEN_COMPRA = A.VOLUMEN_COMPRA * 1.3;
+
+SELECT * FROM tabla_de_productos;
+
+DELETE  FROM tabla_de_productos WHERE TAMANO= '1 Litro';
+
+DELETE A FROM tb_facturas A
+INNER JOIN 
+tb_clientes B 
+ON A.DNI = B.DNI
+WHERE B.EDAD < 18;
